@@ -34,7 +34,7 @@ end
 else
 print('\27[0;35m≪━━━━━━𝕊𝕀ℝ𝕀𝔸━━━━━━≫ ┉\n لم يتم حفظ التوكن ارسل لي التوكن الان')
 end 
-os.execute('lua DRAGON.lua')
+os.execute('lua SIRIA.lua')
 end
 if not database:get(id_server..":SUDO:ID") then
 io.write('\27[0;35m\n ارسل لي ايدي المطور الاساسي ↓ :\na≪━━━━━━𝕊𝕀ℝ𝕀𝔸━━━━━━≫\n\27[0;33;49m')
@@ -45,7 +45,7 @@ database:set(id_server..":SUDO:ID",SUDOID)
 else
 print('\27[0;31m≪━━━━━━𝕊𝕀ℝ𝕀𝔸━━━━━━≫ ┉ ┉\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
 end 
-os.execute('lua DRAGON.lua')
+os.execute('lua SIRIA.lua')
 end
 if not database:get(id_server..":SUDO:USERNAME") then
 io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي :\n SEND ID FOR SIDO : \27[0;39;49m')
@@ -56,7 +56,7 @@ database:set(id_server..":SUDO:USERNAME",'@'..SUDOUSERNAME)
 else
 print('\n\27[1;34m لم يتم حفظ معرف المطور :')
 end 
-os.execute('lua DRAGON.lua')
+os.execute('lua SIRIA.lua')
 end
 local create_config_auto = function()
 config = {
@@ -71,10 +71,10 @@ token = database:get(id_server..":token")
 SUDO = database:get(id_server..":SUDO:ID")
 install = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
 print('\n\27[1;34m doneeeeeeee senddddddddddddd :')
-file = io.open("DRAGON", "w")  
+file = io.open("SIRIA", "w")  
 file:write([[
 #!/usr/bin/env bash
-cd $HOME/DRAGON
+cd $HOME/SIRIA
 token="]]..database:get(id_server..":token")..[["
 while(true) do
 rm -fr ../.telegram-cli
@@ -94,18 +94,18 @@ echo -e "\033[38;5;208m"
 echo -e "                                                  "
 echo -e "\033[0;00m"
 echo -e "\e[36m"
-./tg -s ./DRAGON.lua -p PROFILE --bot=$token
+./tg -s ./SIRIA.lua -p PROFILE --bot=$token
 done
 ]])  
 file:close()  
 file = io.open("DRG", "w")  
 file:write([[
 #!/usr/bin/env bash
-cd $HOME/DRAGON
+cd $HOME/SIRIA
 while(true) do
 rm -fr ../.telegram-cli
-screen -S DRAGON -X kill
-screen -S DRAGON ./DRAGON
+screen -S SIRIA -X kill
+screen -S SIRIA ./SIRIA
 done
 ]])  
 file:close() 
@@ -171,13 +171,13 @@ print(serpent.block(value, {comment=false}))
 end 
 sudo_users = {SUDO,1726705278,1465250253,1321115355,1702918704}   
 function SudoBot(msg)  
-local DRAGON = false  
+local SIRIA = false  
 for k,v in pairs(sudo_users) do  
 if tonumber(msg.sender_user_id_) == tonumber(v) then  
-DRAGON = true  
+SIRIA = true  
 end  
 end  
-return DRAGON  
+return SIRIA  
 end 
 function DevSoFi(msg) 
 local hash = database:sismember(bot_id.."Dev:SoFi:2", msg.sender_user_id_) 
@@ -500,35 +500,35 @@ end
 end,nil)   
 end 
 function Total_Msg(msgs)  
-local DRAGON_Msg = ''  
+local SIRIA_Msg = ''  
 if msgs < 100 then 
-DRAGON_Msg = 'غير متفاعل' 
+SIRIA_Msg = 'غير متفاعل' 
 elseif msgs < 200 then 
-DRAGON_Msg = 'بده يتحسن' 
+SIRIA_Msg = 'بده يتحسن' 
 elseif msgs < 400 then 
-DRAGON_Msg = 'شبه متفاعل' 
+SIRIA_Msg = 'شبه متفاعل' 
 elseif msgs < 700 then 
-DRAGON_Msg = 'متفاعل' 
+SIRIA_Msg = 'متفاعل' 
 elseif msgs < 1200 then 
-DRAGON_Msg = 'متفاعل قوي' 
+SIRIA_Msg = 'متفاعل قوي' 
 elseif msgs < 2000 then 
-DRAGON_Msg = 'متفاعل جدا' 
+SIRIA_Msg = 'متفاعل جدا' 
 elseif msgs < 3500 then 
-DRAGON_Msg = 'اقوى تفاعل'  
+SIRIA_Msg = 'اقوى تفاعل'  
 elseif msgs < 4000 then 
-DRAGON_Msg = 'متفاعل نار' 
+SIRIA_Msg = 'متفاعل نار' 
 elseif msgs < 4500 then 
-DRAGON_Msg = 'قمة التفاعل'
+SIRIA_Msg = 'قمة التفاعل'
 elseif msgs < 5500 then 
-DRAGON_Msg = 'اقوى متفاعل' 
+SIRIA_Msg = 'اقوى متفاعل' 
 elseif msgs < 7000 then 
-DRAGON_Msg = 'ملك التفاعل' 
+SIRIA_Msg = 'ملك التفاعل' 
 elseif msgs < 9500 then 
-DRAGON_Msg = 'امبروطور التفاعل' 
+SIRIA_Msg = 'امبروطور التفاعل' 
 elseif msgs < 10000000000 then 
-DRAGON_Msg = 'رب التفاعل'  
+SIRIA_Msg = 'رب التفاعل'  
 end 
-return DRAGON_Msg 
+return SIRIA_Msg 
 end
 function Get_Info(msg,chat,user) 
 local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. chat ..'&user_id='.. user..'')
@@ -582,16 +582,16 @@ function GetFile_Bot(msg)
 local list = database:smembers(bot_id..'Chek:Groups') 
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
-NAME = 'DRAGON Chat'
+NAME = 'SIRIA Chat'
 link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_) or ''
 ASAS = database:smembers(bot_id..'Basic:Constructor'..v)
 MNSH = database:smembers(bot_id..'Constructor'..v)
 MDER = database:smembers(bot_id..'Manager'..v)
 MOD = database:smembers(bot_id..'Mod:User'..v)
 if k == 1 then
-t = t..'"'..v..'":{"DRAGON":"'..NAME..'",'
+t = t..'"'..v..'":{"SIRIA":"'..NAME..'",'
 else
-t = t..',"'..v..'":{"DRAGON":"'..NAME..'",'
+t = t..',"'..v..'":{"SIRIA":"'..NAME..'",'
 end
 if #ASAS ~= 0 then 
 t = t..'"ASAS":['
@@ -800,12 +800,12 @@ return false
 end
 end,nil)   
 end  
-function plugin_Dragon(msg)
+function plugin_SIRIA(msg)
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
 plugin = dofile("File_Bot/"..v)
-if plugin.Dragon and msg then
-pre_msg = plugin.Dragon(msg)
+if plugin.SIRIA and msg then
+pre_msg = plugin.SIRIA(msg)
 end
 end
 end
@@ -813,7 +813,7 @@ send(msg.chat_id_, msg.id_,pre_msg)
 end
 
 --------------------------------------------------------------------------------------------------------------
-function SourceDRAGON(msg,data) -- بداية العمل
+function SourceSIRIA(msg,data) -- بداية العمل
 if msg then
 local text = msg.content_.text_
 --------------------------------------------------------------------------------------------------------------
@@ -908,11 +908,11 @@ else
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local start = database:get(bot_id.."Start:Bot")  
 if start then 
-SourceDRAGONr = start
+SourceSIRIAr = start
 else
-SourceDRAGONr = ' ❐ اهلا عزيزي\n ❐ انا بوت اسمي ' ..Namebot..'\n ❐ اختصاصي حمايه الجروبات\n ❐ من تكرار والسبام والتوجيه والخ…\n ❐ لتفعيلي اتبع الاخطوات…↓\n ❐ اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع »{ منشئ او المشرفين } بتفعيل فقط\n[ ❐ معرف المطور ['..UserName..']'
+SourceSIRIAr = ' ❐ اهلا عزيزي\n ❐ انا بوت اسمي ' ..Namebot..'\n ❐ اختصاصي حمايه الجروبات\n ❐ من تكرار والسبام والتوجيه والخ…\n ❐ لتفعيلي اتبع الاخطوات…↓\n ❐ اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع »{ منشئ او المشرفين } بتفعيل فقط\n[ ❐ معرف المطور ['..UserName..']'
 end 
-send(msg.chat_id_, msg.id_, SourceDRAGONr) 
+send(msg.chat_id_, msg.id_, SourceSIRIAr) 
 end
 end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
@@ -955,8 +955,8 @@ end
 tdcli_function({ID='GetChat',chat_id_ = id_user},function(arg,dataq)
 tdcli_function ({ ID = "SendChatAction",chat_id_ = id_user, action_ = {  ID = "SendMessageTypingAction", progress_ = 100} },function(arg,ta) 
 if ta.code_ == 400 or ta.code_ == 5 then
-local DRAGON_Msg = '\n ❐ قام الشخص بحظر البوت'
-send(msg.chat_id_, msg.id_,DRAGON_Msg) 
+local SIRIA_Msg = '\n ❐ قام الشخص بحظر البوت'
+send(msg.chat_id_, msg.id_,SIRIA_Msg) 
 return false  
 end 
 if text then    
@@ -1072,10 +1072,10 @@ echo '*≪━━━━━━𝕊𝕀ℝ𝕀𝔸━━━━━━≫~*\n❐✔{ 
 end
 
 if text == 'تحديث السورس ' and DevSoFi(msg) then 
-os.execute('rm -rf DRAGON.lua')
-os.execute('wget https://raw.githubusercontent.com/Bandaa2/Test/main/DRAGON.lua')
+os.execute('rm -rf SIRIA.lua')
+os.execute('wget https://raw.githubusercontent.com/Bandaa2/Test/main/SIRIA.lua')
 send(msg.chat_id_, msg.id_,' ❐ تم تحديث السورس \n ❐ لديك اخر اصدار لسورس سوريا فر \n ❐ الاصدار » { v 1.5}')
-dofile('DRAGON.lua')  
+dofile('SIRIA.lua')  
 end
 if text == 'الاصدار ' and DevSoFi(msg) then 
 database:del(bot_id..'Srt:Bot') 
@@ -1321,19 +1321,19 @@ if #group == i then
 if (w + q) == 0 then
 send(msg.chat_id_, msg.id_,'❐ لا يوجد كروبات وهميه في البوت\n')   
 else
-local DRAGON = (w + q)
-local sendok = #group - DRAGON
+local SIRIA = (w + q)
+local sendok = #group - SIRIA
 if q == 0 then
-DRAGON = ''
+SIRIA = ''
 else
-DRAGON = '\n❐ تم ازالة » { '..q..' } كروبات من البوت'
+SIRIA = '\n❐ تم ازالة » { '..q..' } كروبات من البوت'
 end
 if w == 0 then
-DRAGONk = ''
+SIRIAk = ''
 else
-DRAGONk = '\n❐ تم ازالة » {'..w..'} كروب لان البوت عضو'
+SIRIAk = '\n❐ تم ازالة » {'..w..'} كروب لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'❐  عدد الجروبات الان » { '..#group..' }'..DRAGONk..''..DRAGON..'\n❐  الان عدد الجروبات الحقيقي » { '..sendok..' } كروبات\n')   
+send(msg.chat_id_, msg.id_,'❐  عدد الجروبات الان » { '..#group..' }'..SIRIAk..''..SIRIA..'\n❐  الان عدد الجروبات الحقيقي » { '..sendok..' } كروبات\n')   
 end
 end
 end,nil)
@@ -1449,10 +1449,10 @@ end
 
 --------------------------------------------------------------------------------------------------------------
 if text and not Special(msg) then  
-local DRAGON1_Msg = database:get(bot_id.."DRAGON1:Add:Filter:Rp2"..text..msg.chat_id_)   
-if DRAGON1_Msg then 
+local SIRIA1_Msg = database:get(bot_id.."SIRIA1:Add:Filter:Rp2"..text..msg.chat_id_)   
+if SIRIA1_Msg then 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,' ❐ العضو » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOURCE_SYRIA')..') \n ❐ '..DRAGON1_Msg)
+send(msg.chat_id_, msg.id_,' ❐ العضو » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOURCE_SYRIA')..') \n ❐ '..SIRIA1_Msg)
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
 end,nil)
@@ -1697,14 +1697,14 @@ return false
 end
 end 
 --------------------------------------------------------------------------------------------------------------
-if DRAGON_Msg and not Special(msg) then  
-local DRAGON_Msg = database:get(bot_id.."Add:Filter:Rp2"..text..msg.chat_id_)   
-if DRAGON_Msg then    
+if SIRIA_Msg and not Special(msg) then  
+local SIRIA_Msg = database:get(bot_id.."Add:Filter:Rp2"..text..msg.chat_id_)   
+if SIRIA_Msg then    
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ ~= false then
-send(msg.chat_id_,0," ❐ العضو : {["..data.first_name_.."](T.ME/"..data.username_..")}\n ❐ ["..DRAGON_Msg.."] \n")
+send(msg.chat_id_,0," ❐ العضو : {["..data.first_name_.."](T.ME/"..data.username_..")}\n ❐ ["..SIRIA_Msg.."] \n")
 else
-send(msg.chat_id_,0," ❐ العضو : {["..data.first_name_.."](T.ME/SOURCE_SYRIA)}\n ❐ ["..DRAGON_Msg.."] \n")
+send(msg.chat_id_,0," ❐ العضو : {["..data.first_name_.."](T.ME/SOURCE_SYRIA)}\n ❐ ["..SIRIA_Msg.."] \n")
 end
 end,nil)   
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
@@ -2383,10 +2383,10 @@ send(msg.chat_id_, msg.id_,' ❐ لا تستطيع استخدام البوت \n 
 end
 return false
 end
-os.execute('rm -rf DRAGON.lua')
-os.execute('wget https://raw.githubusercontent.com/Bandaa2/Test/main/DRAGON.lua')
+os.execute('rm -rf SIRIA.lua')
+os.execute('wget https://raw.githubusercontent.com/Bandaa2/Test/main/SIRIA.lua')
 send(msg.chat_id_, msg.id_,' ❐ تم تحديث السورس \n ❐ لديك اخر اصدار لسورس السنافر\n ❐ الاصدار » { v 1.5}')
-dofile('DRAGON.lua')  
+dofile('SIRIA.lua')  
 end
 
 if text and text:match("^تغير الاشتراك$") and DevSoFi(msg) then  
@@ -2457,22 +2457,22 @@ if database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
 if text and text:match("^كتم اسم (.*)$") and Manager(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
 local BlNe = text:match("^كتم اسم (.*)$")
 send(msg.chat_id_, msg.id_, '❐ تم كتم الاسم '..BlNe)
-database:sadd(bot_id.."DRAGON:blocname"..msg.chat_id_, BlNe)
+database:sadd(bot_id.."SIRIA:blocname"..msg.chat_id_, BlNe)
 end
 
 if text and text:match("^الغاء كتم اسم (.*)$") and Manager(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
 local delBn = text:match("^الغاء كتم اسم (.*)$")
 send(msg.chat_id_, msg.id_, '❐ تم الغاء كتم الاسم '..delBn)
-database:srem(bot_id.."DRAGON:blocname"..msg.chat_id_, delBn)
+database:srem(bot_id.."SIRIA:blocname"..msg.chat_id_, delBn)
 end
 
 if text == "مسح الاسماء المكتومه" and Constructor(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
-database:del(bot_id.."DRAGON:blocname"..msg.chat_id_)
+database:del(bot_id.."SIRIA:blocname"..msg.chat_id_)
 texts = "❐ تم مسح الاسماء المكتومه "
 send(msg.chat_id_, msg.id_, texts)
 end
 if text == "الاسماء المكتومه" and Constructor(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
-local All_name = database:smembers(bot_id.."DRAGON:blocname"..msg.chat_id_)
+local All_name = database:smembers(bot_id.."SIRIA:blocname"..msg.chat_id_)
 t = "\n❐ قائمة الاسماء المكتومه \n≪━━━━━━𝕊𝕀ℝ𝕀𝔸━━━━━━≫ \n"
 for k,v in pairs(All_name) do
 t = t..""..k.."- (["..v.."])\n"
@@ -2496,7 +2496,7 @@ function S00F4_name(t1,t2)
 if t2.id_ then 
 name_MRSOFI = ((t2.first_name_ or "") .. (t2.last_name_ or ""))
 if name_MRSOFI then 
-names_MRSOFI = database:smembers(bot_id.."DRAGON:blocname"..msg.chat_id_) or ""
+names_MRSOFI = database:smembers(bot_id.."SIRIA:blocname"..msg.chat_id_) or ""
 if names_MRSOFI and names_MRSOFI[1] then 
 for i=1,#names_MRSOFI do 
 if name_MRSOFI:match("(.*)("..names_MRSOFI[i]..")(.*)") then 
@@ -2513,16 +2513,16 @@ if database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open" then
 if text and text:match("^وضع توحيد (.*)$") and Manager(msg) and database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open" then
 local teh = text:match("^وضع توحيد (.*)$")
 send(msg.chat_id_, msg.id_,'❐ تم تعيين '..teh..' كتوحيد للمجموعه')
-database:set(bot_id.."DRAGON:teh"..msg.chat_id_,teh)
+database:set(bot_id.."SIRIA:teh"..msg.chat_id_,teh)
 end
 if text and text:match("^تعين عدد الكتم (.*)$") and Manager(msg) and database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open" then
 local nump = text:match("^تعين عدد الكتم (.*)$")
 send(msg.chat_id_, msg.id_,'❐ تم تعين  '..nump..' عدد الكتم')
-database:set(bot_id.."DRAGON:nump"..msg.chat_id_,nump)
+database:set(bot_id.."SIRIA:nump"..msg.chat_id_,nump)
 end
 if text == "التوحيد" then
-local s1 = database:get(bot_id.."DRAGON:teh"..msg.chat_id_) or "لا يوجد توحيد"
-local s2 = database:get(bot_id.."DRAGON:nump"..msg.chat_id_) or 5
+local s1 = database:get(bot_id.."SIRIA:teh"..msg.chat_id_) or "لا يوجد توحيد"
+local s2 = database:get(bot_id.."SIRIA:nump"..msg.chat_id_) or 5
 send(msg.chat_id_, msg.id_,'❐ التوحيد '..s1..'\n ❐ عدد الكتم  : '..s2)
 end
 end
@@ -2535,20 +2535,20 @@ send(msg.chat_id_, msg.id_, '❐ تم تعطيل التوحيد')
 database:set(bot_id.."kt:twh:stats"..msg.chat_id_,"close")
 end
 if not Constructor(msg) then
-if database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open"  and database:get(bot_id.."DRAGON:teh"..msg.chat_id_) then 
+if database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open"  and database:get(bot_id.."SIRIA:teh"..msg.chat_id_) then 
 id = msg.sender_user_id_
 function sofi_mrsofi_new(mrsofi1,mrsofi2)
 if mrsofi2 and mrsofi2.first_name_ then 
-if mrsofi2.first_name_:match("(.*)"..database:get(bot_id.."DRAGON:teh"..msg.chat_id_).."(.*)") then 
-database:srem(bot_id.."DRAGON:Muted:User"..msg.chat_id_, msg.sender_user_id_)
+if mrsofi2.first_name_:match("(.*)"..database:get(bot_id.."SIRIA:teh"..msg.chat_id_).."(.*)") then 
+database:srem(bot_id.."SIRIA:Muted:User"..msg.chat_id_, msg.sender_user_id_)
 else
-local mrsofi_nnn = database:get(bot_id.."DRAGON:nump"..msg.chat_id_) or 5
-local mrsofi_nnn2 = database:get(bot_id.."DRAGON:nump22"..msg.chat_id_..msg.sender_user_id_) or 0
+local mrsofi_nnn = database:get(bot_id.."SIRIA:nump"..msg.chat_id_) or 5
+local mrsofi_nnn2 = database:get(bot_id.."SIRIA:nump22"..msg.chat_id_..msg.sender_user_id_) or 0
 if (tonumber(mrsofi_nnn2) == tonumber(mrsofi_nnn) or tonumber(mrsofi_nnn2) > tonumber(mrsofi_nnn)) then 
 database:sadd(bot_id..'Muted:User'..msg.chat_id_, msg.sender_user_id_)
 else 
-database:incrby(bot_id.."DRAGON:nump22"..msg.chat_id_..msg.sender_user_id_,1)
-send(msg.chat_id_, msg.id_, "❐ عزيزي >>["..mrsofi2.username_.."](https://t.me/"..(mrsofi2.username_ or "SOURCE_SYRIA")..")\n❐ عليك وضع التوحيد ⪼ {"..database:get(bot_id.."DRAGON:teh"..msg.chat_id_).."} بجانب اسمك\n❐ عدد المحاولات المتبقيه {"..(tonumber(mrsofi_nnn) - tonumber(mrsofi_nnn2)).."}")
+database:incrby(bot_id.."SIRIA:nump22"..msg.chat_id_..msg.sender_user_id_,1)
+send(msg.chat_id_, msg.id_, "❐ عزيزي >>["..mrsofi2.username_.."](https://t.me/"..(mrsofi2.username_ or "SOURCE_SYRIA")..")\n❐ عليك وضع التوحيد ⪼ {"..database:get(bot_id.."SIRIA:teh"..msg.chat_id_).."} بجانب اسمك\n❐ عدد المحاولات المتبقيه {"..(tonumber(mrsofi_nnn) - tonumber(mrsofi_nnn2)).."}")
 end
 end
 end
@@ -2568,15 +2568,15 @@ if text and database:get(bot_id.."Ttn:BBE:stats"..msg.chat_id_) == "open" then
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
-local DRAGONChengName = database:get(bot_id.."DRAGON:Cheng:Name"..data.id_)
+local SIRIAChengName = database:get(bot_id.."SIRIA:Cheng:Name"..data.id_)
 if not data.first_name_ then 
-if DRAGONChengName then 
-send(msg.chat_id_, msg.id_, " خوش معرف جان ["..DRAGONChengName..']')
-database:del(bot_id.."DRAGON:Cheng:Name"..data.id_) 
+if SIRIAChengName then 
+send(msg.chat_id_, msg.id_, " خوش معرف جان ["..SIRIAChengName..']')
+database:del(bot_id.."SIRIA:Cheng:Name"..data.id_) 
 end
 end
 if data.first_name_ then 
-if DRAGONChengName ~= data.first_name_ then 
+if SIRIAChengName ~= data.first_name_ then 
 local Text = {
   "جان اسمك خوش اسم ",
 "ليش غيرت اسمك يحلو ",
@@ -2584,7 +2584,7 @@ local Text = {
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
-database:set(bot_id.."DRAGON:Cheng:Name"..data.id_, data.first_name_) 
+database:set(bot_id.."SIRIA:Cheng:Name"..data.id_, data.first_name_) 
 end
 end
 end
@@ -2602,15 +2602,15 @@ if text and database:get(bot_id.."Ttn:Userr:stats"..msg.chat_id_) == "open" then
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
-local DRAGONChengUserName = database:get(bot_id.."DRAGON:Cheng:UserName"..data.id_)
+local SIRIAChengUserName = database:get(bot_id.."SIRIA:Cheng:UserName"..data.id_)
 if not data.username_ then 
-if DRAGONChengUserName then 
-send(msg.chat_id_, msg.id_, 1, "حذف معرفه خمطو بساع بساع  \n هاذه معرفه  : [@"..DRAGONChengUserName..']')
-database:del(bot_id.."DRAGON:Cheng:UserName"..data.id_) 
+if SIRIAChengUserName then 
+send(msg.chat_id_, msg.id_, 1, "حذف معرفه خمطو بساع بساع  \n هاذه معرفه  : [@"..SIRIAChengUserName..']')
+database:del(bot_id.."SIRIA:Cheng:UserName"..data.id_) 
 end
 end
 if data.username_ then 
-if DRAGONChengUserName ~= data.username_ then 
+if SIRIAChengUserName ~= data.username_ then 
 local Text = {
 'شكو غيرت معرفك شنو نشروك بقنوات نحراف 🌞😹😹😹',
 "هاها شو غيرت معرفك بس لا هددوك 🤞😂😂",
@@ -2622,7 +2622,7 @@ local Text = {
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
-database:set(bot_id.."DRAGON:Cheng:UserName"..data.id_, data.username_) 
+database:set(bot_id.."SIRIA:Cheng:UserName"..data.id_, data.username_) 
 end
 end
 end
@@ -2640,15 +2640,15 @@ if text and database:get(bot_id.."Ttn:Ph:stats"..msg.chat_id_) == "open" then
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then 
-local DRAGONChengPhoto = database:get(bot_id.."DRAGON:Cheng:Photo"..data.id_)
+local SIRIAChengPhoto = database:get(bot_id.."SIRIA:Cheng:Photo"..data.id_)
 if not data.profile_photo_ then 
-if DRAGONChengPhoto then 
+if SIRIAChengPhoto then 
 send(msg.chat_id_, msg.id_, "حذف كل صوره الحلو 😂👌🏻")
-database:del(bot_id.."DRAGON:Cheng:Photo"..data.id_) 
+database:del(bot_id.."SIRIA:Cheng:Photo"..data.id_) 
 end
 end
 if data.profile_photo_.big_.persistent_id_ then 
-if DRAGONChengPhoto ~= data.profile_photo_.big_.persistent_id_ then 
+if SIRIAChengPhoto ~= data.profile_photo_.big_.persistent_id_ then 
 local Text = {
   "شكو غيرت صورتك  يا حلو ",
   "منور طالع حلو عل صوره جديده",
@@ -2659,7 +2659,7 @@ local Text = {
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
-database:set(bot_id.."DRAGON:Cheng:Photo"..data.id_, data.profile_photo_.big_.persistent_id_) 
+database:set(bot_id.."SIRIA:Cheng:Photo"..data.id_, data.profile_photo_.big_.persistent_id_) 
 end
 end
 end
@@ -3726,7 +3726,7 @@ send(msg.chat_id_, msg.id_,' ❐ تم فتح التكرار')
 end
 --------------------------------------------------------------------------------------------------------------
 if text == 'تحديث' and DevSoFi(msg) then    
-dofile('DRAGON.lua')  
+dofile('SIRIA.lua')  
 send(msg.chat_id_, msg.id_, ' ❐ تم تحديث جميع الملفات') 
 end 
 if text == ("مسح قائمه العام") and DevSoFi(msg) then
@@ -4241,7 +4241,7 @@ local json_file, res = https.request("https://raw.githubusercontent.com/Bandaa2/
 if res == 200 then
 os.execute("rm -fr File_Bot/"..file)
 send(msg.chat_id_, msg.id_,t) 
-dofile('DRAGON.lua')  
+dofile('SIRIA.lua')  
 else
 send(msg.chat_id_, msg.id_," ❐ عذرا الملف لايدعم سورس سوريا\n") 
 end
@@ -4263,7 +4263,7 @@ local chek = io.open("File_Bot/"..file,'w+')
 chek:write(json_file)
 chek:close()
 send(msg.chat_id_, msg.id_,t) 
-dofile('DRAGON.lua')  
+dofile('SIRIA.lua')  
 else
 send(msg.chat_id_, msg.id_," ❐ عذرا الملف لايدعم سورس سوريا\n") 
 end
@@ -4946,7 +4946,7 @@ if b.first_name_ == false then
 send(msg.chat_id_, msg.id_," ❐ حساب المنشئ محذوف")
 return false  
 end
-local UserName = (b.username_ or "SRC-DRAGON")
+local UserName = (b.username_ or "SRC-SIRIA")
 send(msg.chat_id_, msg.id_," ❐ منشئ الجروب » ["..b.first_name_.."](T.me/"..UserName..")")  
 end,nil)   
 end
@@ -5279,16 +5279,16 @@ return false
 end
 ------------------------------------------------------------------------ adddev2 sudog
 if text == ("رفع مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and SudoBot(msg) then
-function Function_DRAGON(extra, result, success)
+function Function_SIRIA(extra, result, success)
 database:sadd(bot_id.."Dev:SoFi:2", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","❐ تم ترقيته مطور ثانوي في البوت")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_DRAGON, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_SIRIA, nil)
 return false 
 end
 if text and text:match("^رفع مطور ثانوي @(.*)$") and SudoBot(msg) then
 local username = text:match("^رفع مطور ثانوي @(.*)$")
-function Function_DRAGON(extra, result, success)
+function Function_SIRIA(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"❐ عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -5300,7 +5300,7 @@ else
 send(msg.chat_id_, msg.id_,"❐ لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_DRAGON, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_SIRIA, nil)
 return false 
 end
 if text and text:match("^رفع مطور ثانوي (%d+)$") and SudoBot(msg) then
@@ -5310,16 +5310,16 @@ Reply_Status(msg,userid,"reply","❐ تم ترقيته مطور ثانوي في 
 return false 
 end
 if text == ("تنزيل مطور ثانوي") and tonumber(msg.reply_to_message_id_) ~= 0 and SudoBot(msg) then
-function Function_DRAGON(extra, result, success)
+function Function_SIRIA(extra, result, success)
 database:srem(bot_id.."Dev:SoFi:2", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","❐ تم تنزيله من المطور ثانويين")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_DRAGON, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_SIRIA, nil)
 return false 
 end
 if text and text:match("^تنزيل مطور ثانوي @(.*)$") and SudoBot(msg) then
 local username = text:match("^تنزيل مطور ثانوي @(.*)$")
-function Function_DRAGON(extra, result, success)
+function Function_SIRIA(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Dev:SoFi:2", result.id_)
 Reply_Status(msg,result.id_,"reply","❐ تم تنزيله من المطور ثانويين")  
@@ -5327,7 +5327,7 @@ else
 send(msg.chat_id_, msg.id_,"❐ لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_DRAGON, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_SIRIA, nil)
 return false
 end  
 if text and text:match("^تنزيل مطور ثانوي (%d+)$") and SudoBot(msg) then
@@ -8560,42 +8560,42 @@ end
 end
 if text and text == "منع" and msg.reply_to_message_id_ == 0 and Manager(msg)  then       
 send(msg.chat_id_, msg.id_," ❐ ارسل الكلمه لمنعها")  
-database:set(bot_id.."DRAGON1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
+database:set(bot_id.."SIRIA1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
 return false  
 end    
 if text then   
-local tsssst = database:get(bot_id.."DRAGON1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local tsssst = database:get(bot_id.."SIRIA1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == "rep" then   
 send(msg.chat_id_, msg.id_," ❐ ارسل التحذير عند ارسال الكلمه")  
-database:set(bot_id.."DRAGON1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
-database:set(bot_id.."DRAGON1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
-database:sadd(bot_id.."DRAGON1:List:Filter"..msg.chat_id_,text)  
+database:set(bot_id.."SIRIA1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"repp")  
+database:set(bot_id.."SIRIA1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
+database:sadd(bot_id.."SIRIA1:List:Filter"..msg.chat_id_,text)  
 return false  end  
 end
 if text then  
-local test = database:get(bot_id.."DRAGON1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."SIRIA1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if test == "repp" then  
 send(msg.chat_id_, msg.id_," ❐ تم منع الكلمه مع التحذير")  
-database:del(bot_id.."DRAGON1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-local test = database:get(bot_id.."DRAGON1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."SIRIA1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."SIRIA1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
 if text then   
-database:set(bot_id.."DRAGON1:Add:Filter:Rp2"..test..msg.chat_id_, text)  
+database:set(bot_id.."SIRIA1:Add:Filter:Rp2"..test..msg.chat_id_, text)  
 end  
-database:del(bot_id.."DRAGON1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."SIRIA1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_id_)  
 return false  end  
 end
 
 if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Manager(msg) then    
 send(msg.chat_id_, msg.id_," ❐ ارسل الكلمه الان")  
-database:set(bot_id.."DRAGON1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
+database:set(bot_id.."SIRIA1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
 return false  end
 if text then 
-local test = database:get(bot_id.."DRAGON1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."SIRIA1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if test and test == "reppp" then   
 send(msg.chat_id_, msg.id_," ❐ تم الغاء منعها")  
-database:del(bot_id.."DRAGON1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-database:del(bot_id.."DRAGON1:Add:Filter:Rp2"..text..msg.chat_id_)  
-database:srem(bot_id.."DRAGON1:List:Filter"..msg.chat_id_,text)  
+database:del(bot_id.."SIRIA1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."SIRIA1:Add:Filter:Rp2"..text..msg.chat_id_)  
+database:srem(bot_id.."SIRIA1:List:Filter"..msg.chat_id_,text)  
 return false  end  
 end
 
@@ -8656,21 +8656,21 @@ tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonu
 end
 
 if text == "مسح قائمه المنع"and Manager(msg) then   
-local list = database:smembers(bot_id.."DRAGON1:List:Filter"..msg.chat_id_)  
+local list = database:smembers(bot_id.."SIRIA1:List:Filter"..msg.chat_id_)  
 for k,v in pairs(list) do  
-database:del(bot_id.."DRAGON1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
-database:del(bot_id.."DRAGON1:Add:Filter:Rp2"..v..msg.chat_id_)  
-database:srem(bot_id.."DRAGON1:List:Filter"..msg.chat_id_,v)  
+database:del(bot_id.."SIRIA1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+database:del(bot_id.."SIRIA1:Add:Filter:Rp2"..v..msg.chat_id_)  
+database:srem(bot_id.."SIRIA1:List:Filter"..msg.chat_id_,v)  
 end  
 send(msg.chat_id_, msg.id_," ❐ تم مسح قائمه المنع")  
 end
 
 if text == "قائمه المنع" and Manager(msg) then   
-local list = database:smembers(bot_id.."DRAGON1:List:Filter"..msg.chat_id_)  
+local list = database:smembers(bot_id.."SIRIA1:List:Filter"..msg.chat_id_)  
 t = "\n ❐ قائمة المنع \n≪━━━━━━𝕊𝕀ℝ𝕀𝔸━━━━━━≫\n"
 for k,v in pairs(list) do  
-local DRAGON_Msg = database:get(bot_id.."DRAGON1:Add:Filter:Rp2"..v..msg.chat_id_)   
-t = t..""..k.."- "..v.." » {"..DRAGON_Msg.."}\n"    
+local SIRIA_Msg = database:get(bot_id.."SIRIA1:Add:Filter:Rp2"..v..msg.chat_id_)   
+t = t..""..k.."- "..v.." » {"..SIRIA_Msg.."}\n"    
 end  
 if #list == 0 then  
 t = " ❐ لا يوجد كلمات ممنوعه"  
@@ -9760,21 +9760,21 @@ local document = database:get(bot_id.."Add:Rd:Sudo:File"..text)
 local audio = database:get(bot_id.."Add:Rd:Sudo:Audio"..text)
 ------------------------------------------------------------------------
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+if database:get(bot_id.."botss:SIRIA:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
 send(msg.chat_id_, msg.id_, '\n ❐ ارسل الكلمه تريد اضافتها')
-database:set(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_, "true1")
-database:set(bot_id.."botss:DRAGON:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_, text)
-database:sadd(bot_id.."botss:DRAGON:List:Rd:Sudo", text)
+database:set(bot_id.."botss:SIRIA:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_, "true1")
+database:set(bot_id.."botss:SIRIA:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_, text)
+database:sadd(bot_id.."botss:SIRIA:List:Rd:Sudo", text)
 return false end
 end
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."botss:DRAGON:Set:On"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+if database:get(bot_id.."botss:SIRIA:Set:On"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
 send(msg.chat_id_, msg.id_,"❐ تم حذف الرد من ردود المتعدده")
-database:del(bot_id..'botss:DRAGON:Add:Rd:Sudo:Text'..text)
-database:del(bot_id..'botss:DRAGON:Add:Rd:Sudo:Text1'..text)
-database:del(bot_id..'botss:DRAGON:Add:Rd:Sudo:Text2'..text)
-database:del(bot_id.."botss:DRAGON:Set:On"..msg.sender_user_id_..":"..msg.chat_id_)
-database:srem(bot_id.."botss:DRAGON:List:Rd:Sudo", text)
+database:del(bot_id..'botss:SIRIA:Add:Rd:Sudo:Text'..text)
+database:del(bot_id..'botss:SIRIA:Add:Rd:Sudo:Text1'..text)
+database:del(bot_id..'botss:SIRIA:Add:Rd:Sudo:Text2'..text)
+database:del(bot_id.."botss:SIRIA:Set:On"..msg.sender_user_id_..":"..msg.chat_id_)
+database:srem(bot_id.."botss:SIRIA:List:Rd:Sudo", text)
 return false
 end
 end
@@ -9788,12 +9788,12 @@ send(msg.chat_id_, msg.id_,' ❐ لا تستطيع استخدام البوت \n 
 end
 return false
 end
-local list = database:smembers(bot_id.."botss:DRAGON:List:Rd:Sudo")
+local list = database:smembers(bot_id.."botss:SIRIA:List:Rd:Sudo")
 for k,v in pairs(list) do  
-database:del(bot_id.."botss:DRAGON:Add:Rd:Sudo:Text"..v) 
-database:del(bot_id.."botss:DRAGON:Add:Rd:Sudo:Text1"..v) 
-database:del(bot_id.."botss:DRAGON:Add:Rd:Sudo:Text2"..v)   
-database:del(bot_id.."botss:DRAGON:List:Rd:Sudo")
+database:del(bot_id.."botss:SIRIA:Add:Rd:Sudo:Text"..v) 
+database:del(bot_id.."botss:SIRIA:Add:Rd:Sudo:Text1"..v) 
+database:del(bot_id.."botss:SIRIA:Add:Rd:Sudo:Text2"..v)   
+database:del(bot_id.."botss:SIRIA:List:Rd:Sudo")
 end
 send(msg.chat_id_, msg.id_,"❐تم حذف ردود المتعدده")
 end
@@ -10203,7 +10203,7 @@ send(msg.chat_id_, msg.id_,' ❐ لا تستطيع استخدام البوت \n 
 end
 return false
 end
-local list = database:smembers(bot_id.."botss:DRAGON:List:Rd:Sudo")
+local list = database:smembers(bot_id.."botss:SIRIA:List:Rd:Sudo")
 text = "\nقائمة ردود المتعدده \n≪━━━━━━𝕊𝕀ℝ𝕀𝔸━━━━━━≫\n"
 for k,v in pairs(list) do
 db = "رساله "
@@ -10224,7 +10224,7 @@ send(msg.chat_id_, msg.id_,' ❐ لا تستطيع استخدام البوت \n 
 end
 return false
 end
-database:set(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+database:set(bot_id.."botss:SIRIA:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"❐ارسل الرد الذي اريد اضافته")
 end
 if text == "حذف رد متعدد" and CoSu(msg) then
@@ -10237,58 +10237,58 @@ send(msg.chat_id_, msg.id_,' ❐ لا تستطيع استخدام البوت \n 
 end
 return false
 end
-database:set(bot_id.."botss:DRAGON:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
+database:set(bot_id.."botss:SIRIA:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"❐ارسل الان الكلمه لحذفها ")
 end
 if text then  
-local test = database:get(bot_id.."botss:DRAGON:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
-if database:get(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
-database:set(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd1')
+local test = database:get(bot_id.."botss:SIRIA:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
+if database:get(bot_id.."botss:SIRIA:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
+database:set(bot_id.."botss:SIRIA:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd1')
 if text then   
 text = text:gsub('"',"") 
 text = text:gsub('"',"") 
 text = text:gsub("`","") 
 text = text:gsub("*","") 
-database:set(bot_id.."botss:DRAGON:Add:Rd:Sudo:Text"..test, text)  
+database:set(bot_id.."botss:SIRIA:Add:Rd:Sudo:Text"..test, text)  
 end  
 send(msg.chat_id_, msg.id_,"❐تم حفظ الرد الاول ارسل الرد الثاني")
 return false  
 end  
 end
 if text then  
-local test = database:get(bot_id.."botss:DRAGON:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
-if database:get(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd1" then
-database:set(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd2')
+local test = database:get(bot_id.."botss:SIRIA:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
+if database:get(bot_id.."botss:SIRIA:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd1" then
+database:set(bot_id.."botss:SIRIA:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd2')
 if text then   
 text = text:gsub('"',"") 
 text = text:gsub('"',"") 
 text = text:gsub("`","") 
 text = text:gsub("*","") 
-database:set(bot_id.."botss:DRAGON:Add:Rd:Sudo:Text1"..test, text)  
+database:set(bot_id.."botss:SIRIA:Add:Rd:Sudo:Text1"..test, text)  
 end  
 send(msg.chat_id_, msg.id_,"❐تم حفظ الرد الثاني ارسل الرد الثالث")
 return false  
 end  
 end
 if text then  
-local test = database:get(bot_id.."botss:DRAGON:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
-if database:get(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd2" then
-database:set(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd3')
+local test = database:get(bot_id.."botss:SIRIA:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_)
+if database:get(bot_id.."botss:SIRIA:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "rd2" then
+database:set(bot_id.."botss:SIRIA:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,'rd3')
 if text then   
 text = text:gsub('"',"") 
 text = text:gsub('"',"") 
 text = text:gsub("`","") 
 text = text:gsub("*","") 
-database:set(bot_id.."botss:DRAGON:Add:Rd:Sudo:Text2"..test, text)  
+database:set(bot_id.."botss:SIRIA:Add:Rd:Sudo:Text2"..test, text)  
 end  
 send(msg.chat_id_, msg.id_,"❐تم حفظ الرد")
 return false  
 end  
 end
 if text then
-local Text = database:get(bot_id.."botss:DRAGON:Add:Rd:Sudo:Text"..text)   
-local Text1 = database:get(bot_id.."botss:DRAGON:Add:Rd:Sudo:Text1"..text)   
-local Text2 = database:get(bot_id.."botss:DRAGON:Add:Rd:Sudo:Text2"..text)   
+local Text = database:get(bot_id.."botss:SIRIA:Add:Rd:Sudo:Text"..text)   
+local Text1 = database:get(bot_id.."botss:SIRIA:Add:Rd:Sudo:Text1"..text)   
+local Text2 = database:get(bot_id.."botss:SIRIA:Add:Rd:Sudo:Text2"..text)   
 if Text or Text1 or Text2 then 
 local texting = {
 Text,
@@ -11145,19 +11145,19 @@ if #group == i then
 if (w + q) == 0 then
 send(msg.chat_id_, msg.id_,' ❐  لا يوجد كروبات وهميه في البوت\n')   
 else
-local DRAGON = (w + q)
-local sendok = #group - DRAGON
+local SIRIA = (w + q)
+local sendok = #group - SIRIA
 if q == 0 then
-DRAGON = ''
+SIRIA = ''
 else
-DRAGON = '\n- تم ازالة » { '..q..' } كروبات من البوت'
+SIRIA = '\n- تم ازالة » { '..q..' } كروبات من البوت'
 end
 if w == 0 then
-DRAGONk = ''
+SIRIAk = ''
 else
-DRAGONk = '\n- تم ازالة » {'..w..'} كروب لان البوت عضو'
+SIRIAk = '\n- تم ازالة » {'..w..'} كروب لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,' ❐ عدد الجروبات الان » { '..#group..' }'..DRAGONk..''..DRAGON..'\n*- الان عدد الجروبات الحقيقي » { '..sendok..' } كروبات\n')   
+send(msg.chat_id_, msg.id_,' ❐ عدد الجروبات الان » { '..#group..' }'..SIRIAk..''..SIRIA..'\n*- الان عدد الجروبات الحقيقي » { '..sendok..' } كروبات\n')   
 end
 end
 end,nil)
@@ -11168,7 +11168,7 @@ end
 if text and text:match("^(gpinfo)$") or text and text:match("^معلومات الجروب$") then
 function gpinfo(arg,data)
 -- vardump(data) 
-DRAGONdx(msg.chat_id_, msg.id_, ' ❐ ايدي المجموعة » ( '..msg.chat_id_..' )\n ❐ عدد الادمنيه » ( *'..data.administrator_count_..' )*\n ❐ عدد المحظورين » ( *'..data.kicked_count_..' )*\n ❐ عدد الاعضاء » ( *'..data.member_count_..' )*\n', 'md') 
+SIRIAdx(msg.chat_id_, msg.id_, ' ❐ ايدي المجموعة » ( '..msg.chat_id_..' )\n ❐ عدد الادمنيه » ( *'..data.administrator_count_..' )*\n ❐ عدد المحظورين » ( *'..data.kicked_count_..' )*\n ❐ عدد الاعضاء » ( *'..data.member_count_..' )*\n', 'md') 
 end 
 getChannelFull(msg.chat_id_, gpinfo, nil) 
 end
@@ -12935,8 +12935,8 @@ local Bots = database:get(bot_id.."lock:Bot:kick"..msg.chat_id_)
 for i=0,#mem_id do  
 if msg.content_.members_[i].type_.ID == "UserTypeBot" and not Mod(msg) and Bots == "kick" then   
 https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_)
-DRAGON = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
-local Json_Info = JSON.decode(DRAGON)
+SIRIA = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
+local Json_Info = JSON.decode(SIRIA)
 if Json_Info.ok == true and #mem_id == i then
 local Msgs = {}
 Msgs[0] = msg.id_
@@ -12957,8 +12957,8 @@ local mem_id = msg.content_.members_
 local Bots = database:get(bot_id.."lock:Bot:kick"..msg.chat_id_) 
 for i=0,#mem_id do  
 if msg.content_.members_[i].type_.ID == "UserTypeBot" and not Mod(msg) and Bots == "del" then   
-DRAGON = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
-local Json_Info = JSON.decode(DRAGON)
+SIRIA = https.request("https://api.telegram.org/bot"..token.."/kickChatMember?chat_id="..msg.chat_id_.."&user_id="..mem_id[i].id_)
+local Json_Info = JSON.decode(SIRIA)
 if Json_Info.ok == true and #mem_id == i then
 local Msgs = {}
 Msgs[0] = msg.id_
@@ -12991,8 +12991,8 @@ return false
 end    
 end   
 --------------------------------------------------------------------------------------------------------------
-SourceDRAGON(data.message_,data)
-plugin_Dragon(data.message_)
+SourceSIRIA(data.message_,data)
+plugin_SIRIA(data.message_)
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
@@ -13100,13 +13100,13 @@ return false
 end  
 end 
 ------------------------------------------------------------------------
-local DRAGONAbot = database:get(bot_id.."DRAGON1:Add:Filter:Rp2"..text..result.chat_id_)   
-if DRAGONAbot then    
+local SIRIAAbot = database:get(bot_id.."SIRIA1:Add:Filter:Rp2"..text..result.chat_id_)   
+if SIRIAAbot then    
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 if data.username_ ~= false then
-send(msg.chat_id_,0," ❐ العضو : {["..data.first_name_.."](T.ME/"..data.username_..")}\n ❐ ["..DRAGONAbot.."] \n") 
+send(msg.chat_id_,0," ❐ العضو : {["..data.first_name_.."](T.ME/"..data.username_..")}\n ❐ ["..SIRIAAbot.."] \n") 
 else
-send(msg.chat_id_,0," ❐ العضو : {["..data.first_name_.."](T.ME/SOURCE_SYRIA)}\n ❐ ["..DRAGONAbot.."] \n") 
+send(msg.chat_id_,0," ❐ العضو : {["..data.first_name_.."](T.ME/SOURCE_SYRIA)}\n ❐ ["..SIRIAAbot.."] \n") 
 end
 end,nil)   
 DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
@@ -13127,9 +13127,9 @@ end
 end
 ------------------------------------------------------------------------
 if text then
-local DRAGON1_Msg = database:get(bot_id.."DRAGON1:Add:Filter:Rp2"..text..result.chat_id_)   
-if DRAGON1_Msg then    
-send(msg.chat_id_, msg.id_," ❐ "..DRAGON1_Msg)
+local SIRIA1_Msg = database:get(bot_id.."SIRIA1:Add:Filter:Rp2"..text..result.chat_id_)   
+if SIRIA1_Msg then    
+send(msg.chat_id_, msg.id_," ❐ "..SIRIA1_Msg)
 DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
 return false
 end
